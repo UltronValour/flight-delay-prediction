@@ -15,7 +15,9 @@ import joblib
 import pandas as pd
 
 
-ARTEFACT_PATH = Path("models/flight_delay_model.pkl")
+# Make path relative to this script so it works from anywhere
+# src/models/predict.py -> ../../models/flight_delay_model.pkl
+ARTEFACT_PATH = Path(__file__).resolve().parent.parent.parent / "models" / "flight_delay_model.pkl"
 
 
 def load_artefact(path: Path = ARTEFACT_PATH) -> Dict[str, Any]:

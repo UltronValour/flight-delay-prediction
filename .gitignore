@@ -49,8 +49,8 @@ data/processed/
 # -----------------------------
 # Model Files (large binaries)
 # -----------------------------
-models/*.pkl
-models/*.joblib
+# models/*.pkl
+# models/*.joblib
 
 # Keep models folder
 !models/.gitkeep
