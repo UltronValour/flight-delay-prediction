@@ -10,12 +10,9 @@ from __future__ import annotations
 from typing import Any, Dict
 
 import pandas as pd
-import requests
 import streamlit as st
 
-
-API_URL = "http://127.0.0.1:8000/predict_delay"
-
+from src.models.predict import predict_delay
 
 def configure_page() -> None:
     st.set_page_config(
@@ -108,22 +105,6 @@ def build_payload(
         "distance": float(distance),
     }
 
-
-def call_api(payload: Dict[str, Any]) -> Dict[str, Any] | None:
-    try:
-        response = requests.post(API_URL, json=payload, timeout=10)
-    except requests.RequestException as exc:
-        st.error(f"Error contacting prediction API: {exc}")
-        return None
-
-    if response.status_code != 200:
-        st.error(
-            f"API returned an error (status {response.status_code}): "
-            f"{response.text}"
-        )
-        return None
-
-    return response.json()
 
 
 def get_risk_band(probability: float) -> str:
@@ -276,7 +257,11 @@ def main() -> None:
             )
 
             with st.spinner("Scoring flight..."):
-                result = call_api(payload)
+                try:
+                    result = predict_delay(payload)
+                except Exception as exc:
+                    st.error(f"Error scoring flight: {exc}")
+                    result = None
 
             if result is None:
                 return
