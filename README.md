@@ -11,6 +11,13 @@ The project includes:
 
 ---
 
+## 🚀 Live Demo
+
+You can try out the live web application on Streamlit Cloud here:
+**[flight-delay-prediction-system.streamlit.app](https://flight-delay-prediction-system.streamlit.app/)**
+
+---
+
 ## 1. Project Overview
 
 Modern flight operations generate huge amounts of data, but passengers and airlines still struggle with delays.  
