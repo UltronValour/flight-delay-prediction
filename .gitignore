@@ -1,0 +1,67 @@
+# -----------------------------
+# Python / Virtual Environment
+# -----------------------------
+venv/
+env/
+ENV/
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+.Python
+.pytest_cache/
+
+# -----------------------------
+# Jupyter Notebook
+# -----------------------------
+.ipynb_checkpoints/
+
+# -----------------------------
+# IDE / Editor
+# -----------------------------
+.vscode/
+.idea/
+.DS_Store
+
+# -----------------------------
+# Logs
+# -----------------------------
+logs/
+*.log
+
+# -----------------------------
+# Environment Variables
+# -----------------------------
+.env
+
+# -----------------------------
+# Data Files (ignore large datasets)
+# -----------------------------
+data/raw/
+data/interim/
+data/processed/
+
+# Keep folder structure
+!data/raw/.gitkeep
+!data/interim/.gitkeep
+!data/processed/.gitkeep
+
+# -----------------------------
+# Model Files (large binaries)
+# -----------------------------
+models/*.pkl
+models/*.joblib
+
+# Keep models folder
+!models/.gitkeep
+
+# -----------------------------
+# Streamlit Cache
+# -----------------------------
+.streamlit/
+
+# -----------------------------
+# OS Files
+# -----------------------------
+.DS_Store
+Thumbs.db
