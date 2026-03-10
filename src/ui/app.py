@@ -7,7 +7,14 @@ backend, and displays the predicted delay status and probability.
 
 from __future__ import annotations
 
+import sys
+from pathlib import Path
 from typing import Any, Dict
+
+# Add the project root to sys.path so Streamlit Cloud can find 'src'
+root_path = Path(__file__).resolve().parent.parent.parent
+if str(root_path) not in sys.path:
+    sys.path.append(str(root_path))
 
 import pandas as pd
 import streamlit as st
